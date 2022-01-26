@@ -24,7 +24,7 @@ body{
 .btn-primary:hover{
     background-color: #1DB954;
     cursor: pointer;
-    
+    transform: scale(1.03, 1.03);
 }
 
 .btn-primary,
@@ -52,7 +52,7 @@ body{
 
 
 .navbar-container{
-    width: 60%;
+    width: 80%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -170,7 +170,8 @@ nav.stroke ul li a:hover:after {
 
 .footer-content{
     display: flex;
-    width: 60%;
+    justify-content: space-between;
+    width: 80%;
     margin: auto;
 }
 
@@ -244,7 +245,7 @@ nav.stroke ul li a:hover:after {
 .footer-content li a,
 .footer-content li a::before,
 .footer-content li a::after{
-    transition: all .5s;
+    transition: all .2s;
 }
 
 
@@ -277,7 +278,7 @@ nav.stroke ul li a:hover:after {
 .footer-info-items li a,
 .footer-info-items li a::before,
 .footer-info-items li a::after{
-    transition: all .5s;
+    transition: all .2s;
 }
 
 
@@ -310,7 +311,8 @@ nav.stroke ul li a:hover:after {
 .socials i,
 .socials i::before,
 .socials i::after{
-    transition: all .5s;
+    transition: all .2s;
+    cursor: pointer;
 }
 
 
