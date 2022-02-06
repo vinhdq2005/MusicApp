@@ -1,3 +1,5 @@
+// show password function
+
 function showPass() {
     document.getElementById('exampleInputPassword1').type = "text"
     let showButton = document.getElementById('exampleCheck1')
@@ -13,7 +15,15 @@ function showPass() {
     }
 }
 
+// sign up form
+
 let signUpForm = document.getElementById('signUpform')
+
+let users = []
+let userFormLocal = JSON.parse(localStorage.getItem("users"))
+if (userFormLocal) {
+    users = userFormLocal
+}
 
 signUpForm.onsubmit = (e) => {
     e.preventDefault()
@@ -25,12 +35,18 @@ signUpForm.onsubmit = (e) => {
     setTextErr("#passwordErr", "")
     setTextErr("#confirmPasswordErr", "")
     console.log(email, password, cfPassword);
-
+    
     let validate = true
 
     if (!email) {
         setTextErr("#emailErr", "Email is required")
         validate = false
+    }
+    for (let i = 0; i < users.length; i++) {
+        if (email == users[i].email) {
+            setTextErr("#emailErr", "This email is already associated with an account")
+            validate = false
+        }
     }
     if (!password) {
         setTextErr("#passwordErr", "Password is required")
@@ -49,8 +65,18 @@ signUpForm.onsubmit = (e) => {
             validate = false
         }
     }
+    if (validate) {
+        let user = {
+            email: email,
+            password: password,
+        }
+        users.push(user)
+        localStorage.setItem("users", JSON.stringify(users))
+        open ("./genre.html", "_parent")
+    }
 }
 
 let setTextErr = (query, content) => {
     document.querySelector(query).innerHTML = content
 }
+

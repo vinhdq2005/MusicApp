@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Đăng ký</title>
+    <title>Đăng nhập</title>
     <link
       href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css"
       rel="stylesheet"
@@ -19,11 +19,13 @@
   </head>
   <body>
     <div class="container">
-      <form action="" id="signUpform">
+      <form action="" id="signInform">
         <a href="" class="brand"><i class="fas fa-play-circle"></i> Music App</a>
-        <h2>Sign up for free to start listening.</h2>
-        <button class="btn-register face">Sign up with Facebook</button>
-        <button class="btn-register google"><img src="https://pngshare.com/wp-content/uploads/2021/06/Google-Ai-Logo-7.png" alt="" style="width: 21px; height: 21px;"> Sign up with Google</button>
+        
+        <button class="btn-register face">CONTINUE WITH FACEBOOK</button>
+        <button class="btn-register apple"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Apple-logo.png" alt="" style="width: 21px; height: 21px;"> CONTINUE WITH APPLE</button>
+        <button class="btn-register google"><img src="https://pngshare.com/wp-content/uploads/2021/06/Google-Ai-Logo-7.png" alt="" style="width: 21px; height: 21px;"> CONTINUE WITH GOOGLE</button>
+        <button class="btn-register phone">CONTINUE WITH PHONE NUMBER</button>
         <span>or</span>
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
@@ -35,7 +37,7 @@
             placeholder="Enter email"
             name="email"
           />
-          <div id="emailErr" class="form-text"></div>
+          <div id="checkAccount" class="form-text"></div>
           <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
         </div>
         <div class="form-group">
@@ -49,17 +51,6 @@
           />
           <div id="passwordErr" class="form-text"></div>
         </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Confirm Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="exampleInputPassword2"
-            placeholder="Password"
-            name="confirmPassword"
-          />
-          <div id="confirmPasswordErr" class="form-text"></div>
-        </div>
         <div class="form-group form-check">
           <input
             type="checkbox"
@@ -71,7 +62,7 @@
             >Show password</label
           >
         </div>
-        <p>Have an account? <a href="./signin.html" style="color: #1ed760;">Sign in</a></p>
+        <p>Don't have an account? <a href="./signup.html" style="color: #1ed760;">Sign up</a></p>
         <button type="submit" class="btn btn-primary">Register</button>
       </form>
     </div>
@@ -82,6 +73,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="./signup.js"></script>
+    <script src="./signin.js"></script>
   </body>
 </html>
