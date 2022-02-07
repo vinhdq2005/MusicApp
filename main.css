@@ -97,7 +97,7 @@ body{
     position: fixed;
     padding: var(--padding);
     width: 80%;
-    background-color: #505053;
+    background-color: #262627;
     z-index: 2;
 }
 
@@ -112,10 +112,6 @@ body{
 }
 
 
-.container section header .button_prev_next span.btn_prev{
-    margin-right: 8px;
-    height: 20px;
-}
 
 .container section header .subscription .mejora{
     margin-right: 1.5em;
@@ -150,6 +146,12 @@ body{
     z-index: 2;
 }
 
+
+.button_prev_next i{
+    font-size: 30px;
+    margin: 5px;
+}
+
 .container section header .subscription .perfil .circle{
     background-color: #333333;
     border-radius: 50%;
@@ -163,3 +165,153 @@ body{
 .circle, .nombre{
     margin-right: 5px;
 }
+
+
+.container section .contentdo_degra{
+    background: linear-gradient(#505053, #181818);
+    width: 100%;
+    margin-top: 61px;
+}
+
+.container section .contentdo_degra .banner{
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://images.hdqwalls.com/download/grey-material-design-4k-7l-1366x768.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+
+
+.container section .contentdo_degra .banner .cancion{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+    margin: 1em;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+}
+
+.container section .contentdo_degra .banner .cancion figure{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: all .4s;
+}
+
+.container section .contentdo_degra .banner .cancion figure img{
+    width: 100%;
+    height: 100%;
+}
+
+.container section .contentdo_degra .banner .cancion figure:hover::before{
+    position: absolute;
+    content: '';
+    background-color: rgba(0, 0, 0, 0.286);
+    width: 100%;
+    height: 100%;
+}
+
+
+.container section .contentdo_degra .banner .cancion figure:hover::after{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-image: url(https://jccdallas.org/wp-content/uploads/2020/06/Spotify-Play-Button.png);
+    background-position: center;
+    background-size: cover;
+    width: 48px;
+    height: 48px;
+    background-repeat: no-repeat;
+}
+
+.container section .contentdo_degra .banner .cancion figure:hover{
+    width: 100%;
+    transform: scale(1.2);
+}
+
+.container .contentdo_content .titulos{
+    text-align: start;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.container .contentdo_content .titulos h1{
+    margin-top: 20px;
+}
+
+.container section .contentdo_content .generos,
+.container section .contentdo_content .podcast{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+.container section .contentdo_content .generos .cards{
+    transition: all .5s;
+    flex-basis: calc((100% / 3) - 20px);
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #282828;
+    cursor: pointer;
+    border-radius: var(--radius);
+    margin: 10px;
+}
+
+.container section .contentdo_content .generos .cards .card_imagen{
+    width: 80px;
+    height: 80px;
+}
+
+
+
+.container section .contentdo_content .generos .cards .card_imagen img{
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: var(--radius);
+    border-bottom-left-radius: var(--radius);
+}
+
+.container section .contentdo_content .generos .cards .card_text{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    width: calc(100% - 80px);
+}
+
+.container section .contentdo_content .generos .cards .card_text img{
+    opacity: 0;
+}
+
+.container section .contentdo_content .generos .cards:hover{
+    background: linear-gradient(#666666, #474747);
+}
+
+.container section .contentdo_content .generos .cards:hover img{
+    opacity: 1;
+    transition: all .5s;
+}
+
+
+
+
+
+
+
+
+
