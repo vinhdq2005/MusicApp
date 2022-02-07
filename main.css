@@ -317,6 +317,7 @@ body{
 .large-boxes{
     display: flex;
     overflow-x: scroll;
+    overflow: hidden;
 }
 
 
