@@ -317,7 +317,6 @@ body{
 .large-boxes{
     display: flex;
     overflow-x: scroll;
-    overflow: hidden;
 }
 
 
@@ -330,6 +329,7 @@ body{
     margin: 60px;
     justify-content: space-around;
 }
+
 
 .large-boxes_box img{
     width: 200px;
@@ -534,3 +534,5 @@ body{
     text-decoration: none;
     color: white;
 }
+
+
