@@ -325,6 +325,7 @@ body{
 
 .large-boxes{
     display: flex;
+    justify-content: space-between;
 }
 .splide__slide {
     /* width: auto !important; */
