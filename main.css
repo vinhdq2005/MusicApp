@@ -325,14 +325,7 @@ body{
 
 .large-boxes{
     display: flex;
-<<<<<<< HEAD
-    justify-content: space-between;
-    margin-top: 30px;
-=======
-    overflow-x: scroll;
->>>>>>> 47883bef4f5d85c48b1982b9c0bcb299eaea17e8
 }
-
 .splide__slide {
     /* width: auto !important; */
 }
@@ -542,7 +535,6 @@ body{
     color: white;
 }
 
-<<<<<<< HEAD
 .player-bar {
     display: flex;
     justify-content: space-between;
@@ -700,6 +692,3 @@ body{
 .volume-control-area:hover .volume-control-bar::before {
     opacity: 1;
 }
-=======
-
->>>>>>> 47883bef4f5d85c48b1982b9c0bcb299eaea17e8
