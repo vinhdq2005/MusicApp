@@ -51,3 +51,143 @@ let renderData = async (music) => {
 
 renderData();
 
+// play music
+
+const song = document.getElementById("song")
+const playBtn = document.querySelector("#play-btn")
+const nextBtn = document.querySelector("#nextBtn")
+const prevBtn = document.querySelector("#preBtn")
+const durationTime = document.querySelector(".current-time");
+const remainingTime = document.querySelector(".max-duration");
+const rangeBar = document.querySelector(".range");
+const musicName = document.querySelector(".musicName");
+const musicAvatar = document.querySelector(".musicAvatar")
+
+let isPlaying = true
+let indexSong = 0
+
+const musics = [
+  {
+    id: 1,
+    title: "3107-2",
+    file: "3107-2.mp3",
+    image: "https://avatar-ex-swe.nixcdn.com/song/2021/02/04/5/a/2/5/1612405167313.jpg"
+  },
+  {
+    id: 2,
+    title: "Gác lại âu lo",
+    file: "Gaclaiaulo.mp3",
+    image: "https://avatar-ex-swe.nixcdn.com/song/2020/07/24/f/6/5/1/1595564868985.jpg"
+  },
+  {
+    id: 3,
+    title: "Gieo quẻ",
+    file: "Gieoque.mp3",
+    image: "https://lyricvn.com/wp-content/uploads/2022/01/5230f92190341d46150e33f7033ee619.jpg" 
+  },
+  {
+    id: 4,
+    title: "Muộn rồi mà sao còn",
+    file: "Muonroimasaocon.mp3",
+    image: "https://avatar-ex-swe.nixcdn.com/song/2021/04/29/9/1/f/8/1619691182261.jpg" 
+  },
+  {
+    id: 5,
+    title: "Nàng thơ",
+    file: "Nangtho.mp3",
+    image: "https://avatar-ex-swe.nixcdn.com/song/2020/07/31/c/5/8/9/1596188259603.jpg" 
+  },
+  {
+    id: 6,
+    title: "Thói quen",
+    file: "Thoiquen.mp3",
+    image: "https://avatar-ex-swe.nixcdn.com/song/2021/11/19/6/d/9/1/1637319864768.jpg" 
+  },
+]
+
+let timer;
+
+nextBtn.addEventListener("click", function() {
+  changeSong(1);
+})
+prevBtn.addEventListener("click", function() {
+  changeSong(-1);
+})
+song.addEventListener("ended", handleEndedSong)
+function handleEndedSong() {
+  changeSong(1)
+}
+
+function changeSong(dir) {
+  if (dir === 1) {
+    indexSong++
+    if (indexSong >= musics.length) {
+      indexSong = 0
+    }
+    isPlaying = true
+  } else if (dir === -1) {
+    indexSong--
+    if (indexSong < 0) {
+      indexSong = musics.length - 1
+    }
+    isPlaying = true
+  }
+  init(indexSong);
+  playPause()
+}
+
+playBtn.addEventListener("click", playPause)
+
+function playPause() {
+  if (isPlaying) {
+    song.play()
+    playBtn.innerHTML = '<i class="fa-solid fa-circle-pause"></i>'
+    isPlaying = false
+    timer = setInterval(displayTimer, 500)
+  } else {
+    song.pause()
+    playBtn.innerHTML = '<i class="fa-solid fa-circle-play"></i>'
+    isPlaying = true
+    timer = clearInterval
+  }
+}
+
+function displayTimer() {
+  const {duration, currentTime} = song
+  rangeBar.max = duration
+  rangeBar.value = currentTime
+  durationTime.textContent = formatTimer(currentTime)
+  if (!duration) {
+    remainingTime.textContent = "00:00"
+  } else {
+    remainingTime.textContent = formatTimer(duration)
+  }
+}
+function formatTimer(number) {
+  const minutes = Math.floor(number / 60)
+  const seconds = Math.floor(number - minutes * 60)
+  return `${minutes < 10 ? "0" + minutes : minutes}:${
+    seconds < 10 ? "0" + seconds : seconds
+  }`
+}
+rangeBar.addEventListener("change", handleChangeBar) 
+function handleChangeBar() {
+  song.currentTime = rangeBar.value
+}
+function init(indexSong) {
+  song.setAttribute("src", `./Music/${musics[indexSong].file}`)
+  musicAvatar.setAttribute("src", `${musics[indexSong].image}`)
+  musicName.textContent = `${musics[indexSong].title}`;
+}
+displayTimer();
+init(indexSong);
+
+let content = document.querySelector(".content")
+
+function search() {
+  content.style.display = "none"
+}
+
+function home() {
+  content.style.display = "block"
+}
