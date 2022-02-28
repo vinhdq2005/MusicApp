@@ -47,6 +47,7 @@ let renderData = async (music) => {
             </li>`;
     topAs.innerHTML += html;
   }
+  
 };
 
 renderData();
@@ -182,12 +183,37 @@ function init(indexSong) {
 displayTimer();
 init(indexSong);
 
+// search & reader 
 let content = document.querySelector(".content")
+let searchMusics = document.querySelector(".search-musics")
+
+let searchData = async (music) => {
+  let drawData = await fetch(
+    `https://api.apify.com/v2/key-value-stores/EJ3Ppyr2t73Ifit64/records/LATEST`
+  );
+  let data = await drawData.json();
+
+  for (let i = 0; i < 30; i++) {
+    let html = `<div class="music-box">
+    <img src="${data.songs.top100_VN[0].songs[i].avatar}" alt="">
+    <span>${data.songs.top100_VN[0].songs[i].title}</span>
+    <span>${data.songs.top100_VN[0].songs[i].creator}</span>
+</div>`;
+
+  searchMusics.innerHTML += html;
+  }
+
+};
+
+searchData()
 
 function search() {
   content.style.display = "none"
+  searchMusics.style.display = "flex"
 }
 
 function home() {
   content.style.display = "block"
+  searchMusics.style.display = "none"
 }
+
