@@ -186,12 +186,20 @@ init(indexSong);
 // search & reader 
 let content = document.querySelector(".content")
 let searchMusics = document.querySelector(".search-musics")
+let searchForm = document.querySelector("#search-form")
+
+
 
 let searchData = async (music) => {
   let drawData = await fetch(
     `https://api.apify.com/v2/key-value-stores/EJ3Ppyr2t73Ifit64/records/LATEST`
   );
   let data = await drawData.json();
+  let dataMusic = []
+  for (let i = 0; i < data.songs.top100_VN[0].songs.length; i++) {
+    dataMusic.push(data.songs.top100_VN[0].songs[i])
+  }
+  console.log(dataMusic);
 
   for (let i = 0; i < 30; i++) {
     let html = `<div class="music-box">
@@ -203,6 +211,20 @@ let searchData = async (music) => {
   searchMusics.innerHTML += html;
   }
 
+  searchForm.onsubmit = function (e) {
+    e.preventDefault()
+    let songName = searchForm.searchInput.value.toLowerCase()
+    
+    // let result = dataMusic.filter((i) => {
+    //   return i.title.toLowerCase().includes(songName.toLowerCase())
+    // })
+
+    for (let i = 0; i < dataMusic.length; i++) {
+      console.log("hello");
+    }
+    console.log(dataMusic[0].length);
+  }
+
 };
 
 searchData()
@@ -210,10 +232,12 @@ searchData()
 function search() {
   content.style.display = "none"
   searchMusics.style.display = "flex"
+  searchForm.style.display = "block"
 }
 
 function home() {
   content.style.display = "block"
   searchMusics.style.display = "none"
+  searchForm.style.display = "none"
 }
 
