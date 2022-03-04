@@ -21,8 +21,8 @@
     <div class="container">
         <aside>
             <div class="menu">
-                <a class="active" href="#"><i class='bx bxs-home'></i>Home</a>
-                <a class="active" href="#"><i class='bx bx-search'></i>Search</a>
+                <p class="active" onclick="home()"><i class='bx bxs-home'></i>Home</p>
+                <p class="active" onclick="search()"><i class='bx bx-search' ></i>Search</p>
                 <a class="active" href="#"><i class='bx bx-library' ></i>Your Library</a><br>
                 <a class="active" href="#"><i class='bx bx-add-to-queue' ></i>Create Playlist</a>
                 <a class="active" href="#"><span><img src="https://i.pinimg.com/originals/07/74/a4/0774a492388967e2b5b6d65b95f3fd1a.png" alt=""></span> Liked Songs</a>
@@ -34,10 +34,14 @@
                     <span class="btn_prev"><i class='bx bx-chevron-left'></i></span>
                     <span class="btn_next"><i class='bx bx-chevron-right'></i></span>
                 </div>  
+                <div class="search">
+                    <form action="" id="search-form"  style="display: none">
+                        
+                        <input type="text" name="searchInput" placeholder="Artist, song or podcast">
+                    </form>
+                </div>
                 <div class="subscription">
-                    <div class="mejora">
-                        <button>ACCOUNT</button>
-                    </div>
+                    
                     <div class="perfil">
                         <span class="circle"><i class='bx bx-user' ></i></span>
                         <span class="nombre">Username</span>
@@ -47,29 +51,28 @@
             </header>
             <div class="player-bar">
                 <div class="player-control-left">
-                    <img src="https://avatar-ex-swe.nixcdn.com/song/2021/03/12/e/2/9/e/1615554946033.jpg" alt="">
+                    <img class="musicAvatar" src="" alt="">
                     <div class="music-title">
-                        <span>Title </span>
+                        <span class="musicName">Title </span>
                         <span>Creator</span>
                     </div>
                    
                 </div>
                 <div class="player-control-centre">
                     <div class="player-control-top">
-                        <i class="fa-solid fa-backward-step"></i>
+                      <i id="preBtn" class="fa-solid fa-backward-step"></i>
+                      <div id="play-btn">
                         <i class="fa-solid fa-circle-play"></i>
-                        <i class="fa-solid fa-forward-step"></i>
+                      </div>
+                      <i id="nextBtn" class="fa-solid fa-forward-step"></i>
                     </div>
-                    <div class="progress-area">
-                        <div class="progress-bar">
-                          <audio id="main-audio" src=""></audio>
-                        </div>
-                        <div class="song-timer">
-                          <span class="current-time">0:00</span>
-                          <span class="max-duration">0:00</span>
-                        </div>
+                    <input type="range" name="range" id="range" class="range" />
+                    <audio src="" id="song"></audio>
+                    <div class="song-timer">
+                        <span class="current-time">0:00</span>
+                      <span class="max-duration">0:00</span>
                     </div>
-                </div>
+                  </div>
                 <div class="player-control-right">
                     <i class="fa-solid fa-volume-high"></i>
                     <div class="volume-control-area">
@@ -79,168 +82,173 @@
                     </div>
                 </div>
             </div>
-            <div class="contentdo_degra">
-                <div class="banner">
-                    <div class="cancion">
-                        <figure>
-                            <img src="https://avatar-ex-swe.nixcdn.com/song/2019/11/22/b/b/d/7/1574391507374_640.jpg" alt="">
-                        </figure>
-                    </div>
-                    <div class="cancion">
-                        <figure>
-                            <img src="https://i.scdn.co/image/ab67616d0000b273a91c10fe9472d9bd89802e5a" alt="">
-                        </figure>
-                    </div>
-                    <div class="cancion">
-                        <figure>
-                            <img src="https://avatar-ex-swe.nixcdn.com/song/2018/01/05/7/d/f/8/1515149696783_640.jpg" alt="">
-                        </figure>
-                    </div>
-                    <div class="cancion">
-                        <figure>
-                            <img src="https://i.scdn.co/image/ab67616d0000b273e0f2af91be409aad81bba98c" alt="">
-                        </figure>
-                    </div>
-                    <div class="cancion">
-                        <figure>
-                            <img src="https://data.chiasenhac.com/data/cover/94/93317.jpg" alt="">
-                        </figure>
-                    </div>
-                </div>
-            </div>
-            <div class="contentdo_content">
-                <div class="titulos">
-                    <h1>Browse all</h1>
-                </div>
-                <div class="generos">
-                    <div class="cards">
-                        <div class="card_imagen"><img src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs2/140337215/original/0ef720fbde0215666a4e553d322056f93b6260f9/design-a-professional-podcast-cover-art-for-spotify-or-itunes.jpg" alt=""></div>
-                        <div class="card_text">
-                            <h4>Podcasts</h4>
+            <div class="content">
+                <div class="contentdo_degra">
+                    <div class="banner">
+                        <div class="cancion">
+                            <figure>
+                                <img src="https://avatar-ex-swe.nixcdn.com/song/2019/11/22/b/b/d/7/1574391507374_640.jpg" alt="">
+                            </figure>
                         </div>
-                    </div>
-                    <div class="cards">
-                        <div class="card_imagen"><img src="https://i.pinimg.com/originals/c8/e8/76/c8e876d46e7d3c75d701a156017b9bbd.jpg" alt=""></div>
-                        <div class="card_text">
-                            <h4>New Releases</h4>
+                        <div class="cancion">
+                            <figure>
+                                <img src="https://i.scdn.co/image/ab67616d0000b273a91c10fe9472d9bd89802e5a" alt="">
+                            </figure>
                         </div>
-                    </div>
-                    <div class="cards">
-                        <div class="card_imagen"><img src="https://charts-images.scdn.co/assets/locale_en/regional/weekly/region_global_large.jpg" alt=""></div>
-                        <div class="card_text">
-                            <h4>Charts</h4>
+                        <div class="cancion">
+                            <figure>
+                                <img src="https://avatar-ex-swe.nixcdn.com/song/2018/01/05/7/d/f/8/1515149696783_640.jpg" alt="">
+                            </figure>
                         </div>
-                    </div>
-                    <div class="cards">
-                        <div class="card_imagen"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTD8cjcfViY6XSjKgRC3CkpL2kUL1iqI4HMA&usqp=CAU" alt=""></div>
-                        <div class="card_text">
-                            <h4>Concerts</h4>
+                        <div class="cancion">
+                            <figure>
+                                <img src="https://i.scdn.co/image/ab67616d0000b273e0f2af91be409aad81bba98c" alt="">
+                            </figure>
                         </div>
-                    </div>
-                    <div class="cards">
-                        <div class="card_imagen"><img src="https://i.vimeocdn.com/video/788203453-49f115d816f45addb303554c53a324eb6bf571a9d0eb88f0dff71da2dd9860b5-d?mw=1100&mh=619&q=70" alt=""></div>
-                        <div class="card_text">
-                            <h4>Made for You</h4>
-                        </div>
-                    </div>
-                    <div class="cards">
-                        <div class="card_imagen"><img src="https://i.scdn.co/image/ab67616d0000b273bcf1f676ebc90fe1ba0cd6b9" alt=""></div>
-                        <div class="card_text">
-                            <h4>At Home</h4>
-                        </div>
-                    </div>
-                    <div class="cards">
-                        <div class="card_imagen"><img src="https://i.scdn.co/image/ab67706f00000003ac10fb2125b4c86478c85a20" alt=""></div>
-                        <div class="card_text">
-                            <h4>Chill</h4>
-                        </div>
-                    </div>
-                    <div class="cards">
-                        <div class="card_imagen"><img src="https://i.scdn.co/image/ab67706f000000035a48f12dd6aa5eac047d1d1b" alt=""></div>
-                        <div class="card_text">
-                            <h4>Alternative</h4>
-                        </div>
-                    </div>
-                    <div class="cards">
-                        <div class="card_imagen"><img src="https://i.scdn.co/image/ab67616d0000b273d89bc5ac60161b30d7ddd918" alt=""></div>
-                        <div class="card_text">
-                            <h4>Mood</h4>
+                        <div class="cancion">
+                            <figure>
+                                <img src="https://data.chiasenhac.com/data/cover/94/93317.jpg" alt="">
+                            </figure>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="middle-section" style="width: 100%;">
-                <h1>Top 100 Vietnam</h1>
-                <div class="splide">
-                    <div class="splide__track">
-                        <ul id="top-VN" class="large-boxes splide__list" style="list-style: none;">
-                            
+                <div class="contentdo_content">
+                    <div class="titulos">
+                        <h1>Browse all</h1>
+                    </div>
+                    <div class="generos">
+                        <div class="cards">
+                            <div class="card_imagen"><img src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs2/140337215/original/0ef720fbde0215666a4e553d322056f93b6260f9/design-a-professional-podcast-cover-art-for-spotify-or-itunes.jpg" alt=""></div>
+                            <div class="card_text">
+                                <h4>Podcasts</h4>
+                            </div>
+                        </div>
+                        <div class="cards">
+                            <div class="card_imagen"><img src="https://i.pinimg.com/originals/c8/e8/76/c8e876d46e7d3c75d701a156017b9bbd.jpg" alt=""></div>
+                            <div class="card_text">
+                                <h4>New Releases</h4>
+                            </div>
+                        </div>
+                        <div class="cards">
+                            <div class="card_imagen"><img src="https://charts-images.scdn.co/assets/locale_en/regional/weekly/region_global_large.jpg" alt=""></div>
+                            <div class="card_text">
+                                <h4>Charts</h4>
+                            </div>
+                        </div>
+                        <div class="cards">
+                            <div class="card_imagen"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTD8cjcfViY6XSjKgRC3CkpL2kUL1iqI4HMA&usqp=CAU" alt=""></div>
+                            <div class="card_text">
+                                <h4>Concerts</h4>
+                            </div>
+                        </div>
+                        <div class="cards">
+                            <div class="card_imagen"><img src="https://i.vimeocdn.com/video/788203453-49f115d816f45addb303554c53a324eb6bf571a9d0eb88f0dff71da2dd9860b5-d?mw=1100&mh=619&q=70" alt=""></div>
+                            <div class="card_text">
+                                <h4>Made for You</h4>
+                            </div>
+                        </div>
+                        <div class="cards">
+                            <div class="card_imagen"><img src="https://i.scdn.co/image/ab67616d0000b273bcf1f676ebc90fe1ba0cd6b9" alt=""></div>
+                            <div class="card_text">
+                                <h4>At Home</h4>
+                            </div>
+                        </div>
+                        <div class="cards">
+                            <div class="card_imagen"><img src="https://i.scdn.co/image/ab67706f00000003ac10fb2125b4c86478c85a20" alt=""></div>
+                            <div class="card_text">
+                                <h4>Chill</h4>
+                            </div>
+                        </div>
+                        <div class="cards">
+                            <div class="card_imagen"><img src="https://i.scdn.co/image/ab67706f000000035a48f12dd6aa5eac047d1d1b" alt=""></div>
+                            <div class="card_text">
+                                <h4>Alternative</h4>
+                            </div>
+                        </div>
+                        <div class="cards">
+                            <div class="card_imagen"><img src="https://i.scdn.co/image/ab67616d0000b273d89bc5ac60161b30d7ddd918" alt=""></div>
+                            <div class="card_text">
+                                <h4>Mood</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section" style="width: 100%;">
+                    <h1>Top 100 Vietnam</h1>
+                    <div class="splide">
+                        <div class="splide__track">
+                            <ul id="top-VN" class="large-boxes splide__list" style="list-style: none;">
+                                
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="middle-section">
+                    <h1>Top 100 US-UK</h1>
+                    <div class="splide">
+                        <div class="splide__track">
+                            <ul id="top-usuk" class="large-boxes splide__list" style="list-style: none;">
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="middle-section">
+                    <h1>Top 100 Asia</h1>
+                    <div class="splide">
+                        <div class="splide__track">
+                            <ul id="top-asia" class="large-boxes splide__list" style="list-style: none;">
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <footer id="footer">
+                    <div class="footer-content">
+                        <ul class="footer-menu">
+                            <p>COMPANY</p>
+                            <li class="footer-menu-item"><a href="">About</a></li>
+                            <li class="footer-menu-item"><a href="">Jobs</a></li>
+                            <li class="footer-menu-item"><a href="">For the Record</a></li>
+                        </ul>
+                        <ul class="footer-menu">
+                            <p>COMMUNITEIS</p>
+                            <li class="footer-menu-item"><a href="">For Artists</a></li>
+                            <li class="footer-menu-item"><a href="">Developers</a></li>
+                            <li class="footer-menu-item"><a href="">Advertising</a></li>
+                            <li class="footer-menu-item"><a href="">Investors</a></li>
+                            <li class="footer-menu-item"><a href="">Vendors</a></li>
+                        </ul>
+                        <ul class="footer-menu">
+                            <p>USEFUL LINKS</p>
+                            <li class="footer-menu-item"><a href="">Support</a></li>
+                            <li class="footer-menu-item"><a href="">Web Player</a></li>
+                            <li class="footer-menu-item"><a href="">Free Mobile App</a></li>
+                        </ul>
+                        <div class="socials">
+                            <i class='bx bxl-facebook'></i>
+                            <i class='bx bxl-instagram'></i>
+                            <i class='bx bxl-twitter'></i>
+                        </div>
+                    </div>
+                    <div class="footer-info">
+                        <ul class="footer-info-items">
+                            <li class="footer-info-item"><a href="">Legal</a></li>
+                            <li class="footer-info-item"><a href="">Privacy Center</a></li>
+                            <li class="footer-info-item"><a href="">Privacy Policy</a></li>
+                            <li class="footer-info-item"><a href="">Cookies</a></li>
+                            <li class="footer-info-item"><a href="">About Ads</a></li>
                         </ul>
                     </div>
-                    
-                </div>
+                </footer>
             </div>
-            
-            <div class="middle-section">
-                <h1>Top 100 US-UK</h1>
-                <div class="splide">
-                    <div class="splide__track">
-                        <ul id="top-usuk" class="large-boxes splide__list" style="list-style: none;">
-                            
-                        </ul>
-                    </div>
-                </div>
+            <div class="search-musics" id="search-musics" style="display: none;">
+                
             </div>
-            
-            <div class="middle-section">
-                <h1>Top 100 Asia</h1>
-                <div class="splide">
-                    <div class="splide__track">
-                        <ul id="top-asia" class="large-boxes splide__list" style="list-style: none;">
-                            
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <footer id="footer">
-                <div class="footer-content">
-                    <ul class="footer-menu">
-                        <p>COMPANY</p>
-                        <li class="footer-menu-item"><a href="">About</a></li>
-                        <li class="footer-menu-item"><a href="">Jobs</a></li>
-                        <li class="footer-menu-item"><a href="">For the Record</a></li>
-                    </ul>
-                    <ul class="footer-menu">
-                        <p>COMMUNITEIS</p>
-                        <li class="footer-menu-item"><a href="">For Artists</a></li>
-                        <li class="footer-menu-item"><a href="">Developers</a></li>
-                        <li class="footer-menu-item"><a href="">Advertising</a></li>
-                        <li class="footer-menu-item"><a href="">Investors</a></li>
-                        <li class="footer-menu-item"><a href="">Vendors</a></li>
-                    </ul>
-                    <ul class="footer-menu">
-                        <p>USEFUL LINKS</p>
-                        <li class="footer-menu-item"><a href="">Support</a></li>
-                        <li class="footer-menu-item"><a href="">Web Player</a></li>
-                        <li class="footer-menu-item"><a href="">Free Mobile App</a></li>
-                    </ul>
-                    <div class="socials">
-                        <i class='bx bxl-facebook'></i>
-                        <i class='bx bxl-instagram'></i>
-                        <i class='bx bxl-twitter'></i>
-                    </div>
-                </div>
-                <div class="footer-info">
-                    <ul class="footer-info-items">
-                        <li class="footer-info-item"><a href="">Legal</a></li>
-                        <li class="footer-info-item"><a href="">Privacy Center</a></li>
-                        <li class="footer-info-item"><a href="">Privacy Policy</a></li>
-                        <li class="footer-info-item"><a href="">Cookies</a></li>
-                        <li class="footer-info-item"><a href="">About Ads</a></li>
-                    </ul>
-                </div>
-            </footer>
             
         </section>
         
