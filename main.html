@@ -16,16 +16,21 @@
       href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css"
     /> -->
     <script src="https://kit.fontawesome.com/f470f49036.js" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
 <body>
     <div class="container">
         <aside>
             <div class="menu">
-                <p class="active" onclick="home()"><i class='bx bxs-home'></i>Home</p>
-                <p class="active" onclick="search()"><i class='bx bx-search' ></i>Search</p>
-                <a class="active" href="#"><i class='bx bx-library' ></i>Your Library</a><br>
-                <a class="active" href="#"><i class='bx bx-add-to-queue' ></i>Create Playlist</a>
-                <a class="active" href="#"><span><img src="https://i.pinimg.com/originals/07/74/a4/0774a492388967e2b5b6d65b95f3fd1a.png" alt=""></span> Liked Songs</a>
+                <p class="active" onclick="home()" ><i class='bx bxs-home' ></i>Home</p>
+                <p class="active" onclick="search()" ><i class='bx bx-search' ></i>Search</p>
+                <a class="active" href="#" ><i class='bx bx-library' ></i>Your Library</a><br>
+                <a class="active" href="#" ><i class='bx bx-add-to-queue' ></i>Create Playlist</a>
+                <a class="active" href="#" ><span><img src="https://i.pinimg.com/originals/07/74/a4/0774a492388967e2b5b6d65b95f3fd1a.png" alt=""></span> Liked Songs</a>
             </div>
         </aside>
         <section>
@@ -82,30 +87,30 @@
                     </div>
                 </div>
             </div>
-            <div class="content">
+            <div class="content" >
                 <div class="contentdo_degra">
                     <div class="banner">
-                        <div class="cancion">
+                        <div class="cancion" data-aos="zoom-in">
                             <figure>
                                 <img src="https://avatar-ex-swe.nixcdn.com/song/2019/11/22/b/b/d/7/1574391507374_640.jpg" alt="">
                             </figure>
                         </div>
-                        <div class="cancion">
+                        <div class="cancion" data-aos="zoom-in">
                             <figure>
                                 <img src="https://i.scdn.co/image/ab67616d0000b273a91c10fe9472d9bd89802e5a" alt="">
                             </figure>
                         </div>
-                        <div class="cancion">
+                        <div class="cancion" data-aos="zoom-in">
                             <figure>
                                 <img src="https://avatar-ex-swe.nixcdn.com/song/2018/01/05/7/d/f/8/1515149696783_640.jpg" alt="">
                             </figure>
                         </div>
-                        <div class="cancion">
+                        <div class="cancion" data-aos="zoom-in">
                             <figure>
                                 <img src="https://i.scdn.co/image/ab67616d0000b273e0f2af91be409aad81bba98c" alt="">
                             </figure>
                         </div>
-                        <div class="cancion">
+                        <div class="cancion" data-aos="zoom-in">
                             <figure>
                                 <img src="https://data.chiasenhac.com/data/cover/94/93317.jpg" alt="">
                             </figure>
@@ -117,6 +122,7 @@
                         <h1>Browse all</h1>
                     </div>
                     <div class="generos">
+                        
                         <div class="cards">
                             <div class="card_imagen"><img src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs2/140337215/original/0ef720fbde0215666a4e553d322056f93b6260f9/design-a-professional-podcast-cover-art-for-spotify-or-itunes.jpg" alt=""></div>
                             <div class="card_text">
@@ -185,10 +191,10 @@
                     </div>
                 </div>
                 
-                <div class="middle-section">
+                <div class="middle-section" >
                     <h1>Top 100 US-UK</h1>
                     <div class="splide">
-                        <div class="splide__track">
+                        <div class="splide__track" >
                             <ul id="top-usuk" class="large-boxes splide__list" style="list-style: none;">
                                 
                             </ul>
@@ -257,6 +263,7 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script> -->
     <script>
         
+        
 
 
 var splide = new Splide( '.splide', {
@@ -266,6 +273,11 @@ var splide = new Splide( '.splide', {
 
 splide.mount();
     </script>
+    
     <script src="./main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
 </body>
 </html>

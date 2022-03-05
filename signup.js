@@ -72,7 +72,7 @@ signUpForm.onsubmit = (e) => {
         }
         users.push(user)
         localStorage.setItem("users", JSON.stringify(users))
-        open ("./genre.html", "_parent")
+        open ("./main.html", "_parent")
     }
 }
 
