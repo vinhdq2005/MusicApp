@@ -34,7 +34,7 @@ signInForm.onsubmit = (e) => {
     checkAccount("#checkAccount", " ")
     for (let i = 0; i < localUsers.length; i++) {
         if (email == localUsers[i].email && password == localUsers[i].password) {
-            open ("./genre.html", "_parent")
+            open ("./main.html", "_parent")
             break
         } else {
             checkAccount("#checkAccount", "We cannot find an account with that email address")

@@ -307,6 +307,10 @@ body{
     padding: 20px;
 }
 
+.middle-section h1{
+    margin-bottom: 15px;
+}
+
 .large-boxes{
     display: flex;
     justify-content: space-between;
@@ -712,16 +716,19 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     background-color: #262627;
     padding: 15px;
     margin-bottom: 30px;
     cursor: pointer;
+    border-radius: 10px;
 }
 
 .music-box img {
     width: 150px;
     height: 150px;
     margin-bottom: 10px;
+    border-radius: 10px;
 }
 
 .music-box span:nth-child(2) {
@@ -739,5 +746,14 @@ body{
     border-radius: 20px;
     border: 1px solid #000000;
     outline: none;
+    font-size: 14px;
+}
+
+.music-download {
+    color: #1ed760;
+    text-decoration: none;
+}
+
+.fa-download {
     font-size: 14px;
 }
