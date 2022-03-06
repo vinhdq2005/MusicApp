@@ -214,21 +214,20 @@ let dataMusicForSearch = [];
   searchMusics.innerHTML += html;
   }
 
-  searchForm.onsubmit = function (e) {
-    e.preventDefault()
-    let songName = searchForm.searchInput.value.toLowerCase()
-    
-    // let result = dataMusic.filter((i) => {
-    //   return i.title.toLowerCase().includes(songName.toLowerCase())
-    // })
-
-    for (let i = 0; i < dataMusic.length; i++) {
-      console.log("hello");
-    }
-    console.log(dataMusic[0].length);
-  }
-
+ 
 };
+searchForm.addEventListener("keyup", (e) => {
+  const searchString = e.target.value.toLowerCase();
+
+  const filteredMusic = dataMusicForSearch.filter((d) => {
+    return (
+      d.title.toLowerCase().includes(searchString) ||
+      d.creator.toLowerCase().includes(searchString)
+    );
+  });
+  renderDataSearch(filteredMusic);
+});
+
 
 searchData()
 
@@ -244,31 +243,4 @@ function home() {
   searchForm.style.display = "none"
 }
 
-          searchMusics.innerHTML += html;
-        }
-      };
-
-      searchForm.addEventListener("keyup", (e) => {
-        const searchString = e.target.value.toLowerCase();
-
-        const filteredMusic = dataMusicForSearch.filter((d) => {
-          return (
-            d.title.toLowerCase().includes(searchString) ||
-            d.creator.toLowerCase().includes(searchString)
-          );
-        });
-        renderDataSearch(filteredMusic);
-      });
-
-      function search() {
-        content.style.display = "none";
-        searchMusics.style.display = "flex";
-        searchForm.style.display = "block";
-      }
-
-      function home() {
-        content.style.display = "block";
-        searchMusics.style.display = "none";
-        searchForm.style.display = "none";
-      }
 
